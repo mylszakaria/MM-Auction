@@ -18,7 +18,8 @@ public class main {
         model.addAttribute("Title","My Title !!");
         model.addAttribute("heading","My heading !!");
         model.addAttribute("body","My BOdy !!");
-        model.addAttribute("footer","My footerx !!");
+        model.addAttribute("footer","My footer  !!");
+        model.addAttribute("footerx","My footer  !!");
 
 
         return "hello";
