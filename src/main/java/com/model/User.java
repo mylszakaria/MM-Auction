@@ -15,7 +15,7 @@ public class User {
     private List<Transaction> transHistory;
     private List<Compensation> compHistory;
     private Cart cart;
-    private Contact conctact;
+    private Contact contact;
     private Authentification auth;
 
     public User(int userId, String userFirstName, String userLastName, String userRole, List<Transaction> transHistory, List<Compensation> compHistory, Cart cart, Contact conctact, Authentification auth) {
@@ -26,7 +26,7 @@ public class User {
         this.transHistory = transHistory;
         this.compHistory = compHistory;
         this.cart = cart;
-        this.conctact = conctact;
+        this.contact = conctact;
         this.auth = auth;
     }
 
