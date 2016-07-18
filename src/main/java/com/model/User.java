@@ -11,32 +11,97 @@ public class User {
     private int userId;
     private String userFirstName;
     private String userLastName;
-    private String userLogin;
-    private String userPassword;
-    private String userAddress;
-    private String userCompanyName;
     private String userRole;
-    private String userEmail;
-    private String userCin;
-    private String userPhoneNum;
     private List<Transaction> transHistory;
     private List<Compensation> compHistory;
     private Cart cart;
+    private Contact conctact;
+    private Authentification auth;
 
-    public User(int userId, String userFirstName, String userLastName, String userLogin, String userPassword, String userAddress, String userCompanyName, String userRole, String userEmail, String userCin, String userPhoneNum, List<Transaction> transHistory, List<Compensation> compHistory, Cart cart) {
+    public User(int userId, String userFirstName, String userLastName, String userRole, List<Transaction> transHistory, List<Compensation> compHistory, Cart cart, Contact conctact, Authentification auth) {
         this.userId = userId;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
-        this.userLogin = userLogin;
-        this.userPassword = userPassword;
-        this.userAddress = userAddress;
-        this.userCompanyName = userCompanyName;
         this.userRole = userRole;
-        this.userEmail = userEmail;
-        this.userCin = userCin;
-        this.userPhoneNum = userPhoneNum;
         this.transHistory = transHistory;
         this.compHistory = compHistory;
         this.cart = cart;
+        this.conctact = conctact;
+        this.auth = auth;
+    }
+
+    public User() {
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUserFirstName() {
+        return userFirstName;
+    }
+
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    public List<Transaction> getTransHistory() {
+        return transHistory;
+    }
+
+    public void setTransHistory(List<Transaction> transHistory) {
+        this.transHistory = transHistory;
+    }
+
+    public List<Compensation> getCompHistory() {
+        return compHistory;
+    }
+
+    public void setCompHistory(List<Compensation> compHistory) {
+        this.compHistory = compHistory;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Contact getConctact() {
+        return conctact;
+    }
+
+    public void setConctact(Contact conctact) {
+        this.conctact = conctact;
+    }
+
+    public Authentification getAuth() {
+        return auth;
+    }
+
+    public void setAuth(Authentification auth) {
+        this.auth = auth;
     }
 }
