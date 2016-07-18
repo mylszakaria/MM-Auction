@@ -1,6 +1,4 @@
-package com.model;
-
-import javax.persistence.Entity;
+package com.business.model;
 
 /**
  * Created by zakaria on 18/07/2016.

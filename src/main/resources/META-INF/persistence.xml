@@ -3,7 +3,7 @@
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-    <!-- @Author: Mourad HILMI
+    <!-- @Author: Zakaria MYLS
          @Since: 2016-07-18
     -->
     <persistence-unit name="MarsaMaroc" transaction-type="RESOURCE_LOCAL">

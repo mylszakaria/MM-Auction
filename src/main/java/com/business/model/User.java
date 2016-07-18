@@ -1,4 +1,4 @@
-package com.model;
+package com.business.model;
 
 import java.util.List;
 
@@ -89,12 +89,12 @@ public class User {
         this.cart = cart;
     }
 
-    public Contact getConctact() {
-        return conctact;
+    public Contact getContact() {
+        return contact;
     }
 
     public void setConctact(Contact conctact) {
-        this.conctact = conctact;
+        this.contact = conctact;
     }
 
     public Authentification getAuth() {

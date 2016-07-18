@@ -1,4 +1,4 @@
-package com.model;
+package com.business.model;
 
 import java.util.Date;
 import java.util.List;

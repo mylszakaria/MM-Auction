@@ -1,4 +1,4 @@
-package com.model;
+package com.business.model;
 
 /**
  * Created by zakaria on 18/07/2016.
