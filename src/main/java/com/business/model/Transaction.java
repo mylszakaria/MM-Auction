@@ -1,28 +1,44 @@
 package com.business.model;
 
+import org.hibernate.boot.registry.selector.StrategyRegistration;
+
+import javax.persistence.*;
+import java.util.Date;
+
 /**
  * Created by zakaria on 18/07/2016.
  */
+@Entity
 public class Transaction {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int transId;
+    @Column
     private double transAmount;
+    @ManyToOne
     private User user;
-    private Compensation comp;
-    private Cart c;
+    @ManyToOne
+    private Auction auction;
+    @Column
+    private Date limiteDate;
 
-    public Transaction(int transId, double transAmount, User user, Cart c) {
+    //Constructeur pour payer  la compensation
+    public Transaction(int transId, double transAmount, User user, Auction auction) {
         this.transId = transId;
         this.transAmount = transAmount;
         this.user = user;
-        this.c = c;
+        this.auction = auction;
     }
 
-    public Transaction(int transId, double transAmount, User user, Compensation comp) {
+    //Constructeur pour acheter les produits du panier
+    public Transaction(int transId, double transAmount, User user) {
         this.transId = transId;
         this.transAmount = transAmount;
         this.user = user;
-        this.comp = comp;
+    }
+
+    public Transaction() {
     }
 
     public int getTransId() {
@@ -49,19 +65,13 @@ public class Transaction {
         this.user = user;
     }
 
-    public Compensation getComp() {
-        return comp;
+    public Auction getAuction() {
+        return auction;
     }
 
-    public void setComp(Compensation comp) {
-        this.comp = comp;
+    public void setAuction(Auction auction) {
+        this.auction = auction;
     }
 
-    public Cart getC() {
-        return c;
-    }
 
-    public void setC(Cart c) {
-        this.c = c;
-    }
 }

@@ -1,13 +1,20 @@
 package com.business.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
 /**
  * Created by zakaria on 18/07/2016.
  */
 
+@Embeddable
 public class Authentification {
 
+    @Column
     private String login;
+    @Column
     private String password;
+
     public Authentification() {
     }
 

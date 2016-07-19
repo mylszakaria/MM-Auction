@@ -1,30 +1,42 @@
 package com.business.model;
 
+import javax.persistence.*;
+import javax.websocket.ClientEndpoint;
 import java.util.List;
 
 /**
  * Created by zakaria on 18/07/2016.
  */
 
+@Entity
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
+    @Column
     private String userFirstName;
+    @Column
     private String userLastName;
+    @Column
     private String userRole;
+    @OneToMany
     private List<Transaction> transHistory;
-    private List<Compensation> compHistory;
+    @ManyToMany
+    private List<Auction> auctHistory;
+    @OneToOne
     private Cart cart;
+    @Embedded
     private Contact contact;
+    @Embedded
     private Authentification auth;
 
-    public User(int userId, String userFirstName, String userLastName, String userRole, List<Transaction> transHistory, List<Compensation> compHistory, Cart cart, Contact conctact, Authentification auth) {
+    public User(int userId, String userFirstName, String userLastName, String userRole, List<Transaction> transHistory, List<Auction> auctHistory, Cart cart, Contact conctact, Authentification auth) {
         this.userId = userId;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userRole = userRole;
         this.transHistory = transHistory;
-        this.compHistory = compHistory;
+        this.auctHistory = auctHistory;
         this.cart = cart;
         this.contact = conctact;
         this.auth = auth;
@@ -73,12 +85,12 @@ public class User {
         this.transHistory = transHistory;
     }
 
-    public List<Compensation> getCompHistory() {
-        return compHistory;
+    public List<Auction> getauctHistory() {
+        return auctHistory;
     }
 
     public void setCompHistory(List<Compensation> compHistory) {
-        this.compHistory = compHistory;
+        this.auctHistory = auctHistory;
     }
 
     public Cart getCart() {

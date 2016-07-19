@@ -1,16 +1,21 @@
 package com.business.model;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by zakaria on 18/07/2016.
  */
+@Entity
 public class Consultation {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int consId;
-    private List<Product> proList;
+    @OneToMany
+    private List<ConsultationProduct> proList;
 
-    public Consultation(int consId, List<Product> proList) {
+    public Consultation(int consId, List<ConsultationProduct> proList) {
         this.consId = consId;
         this.proList = proList;
     }
@@ -26,11 +31,11 @@ public class Consultation {
         this.consId = consId;
     }
 
-    public List<Product> getProList() {
+    public List<ConsultationProduct> getProList() {
         return proList;
     }
 
-    public void setProList(List<Product> proList) {
+    public void setProList(List<ConsultationProduct> proList) {
         this.proList = proList;
     }
 }

@@ -1,28 +1,26 @@
 package com.business.model;
 
-import java.util.Map;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 /**
  * Created by zakaria on 18/07/2016.
  */
+@Entity
+@DiscriminatorValue(value = "Auction")
 public class AuctionProduct extends Product {
 
-    private Map<Product,Double> highestBid;
+
+    @Column
     private double productminPrice;
 
-    public AuctionProduct(int productId, String productName, int productInventory, String productImg) {
+    public AuctionProduct(int productId, String productName, int productInventory, String productImg, double productmonPrice) {
         super(productId, productName, productInventory, productImg);
+        this.productminPrice=productmonPrice;
     }
 
     public AuctionProduct() {
-    }
-
-    public Map<Product, Double> getHighestBid() {
-        return highestBid;
-    }
-
-    public void setHighestBid(Map<Product, Double> highestBid) {
-        this.highestBid = highestBid;
     }
 
     public double getProductminPrice() {

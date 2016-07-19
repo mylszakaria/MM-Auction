@@ -1,36 +1,42 @@
 package com.business.model;
 
+import javax.persistence.*;
 import java.util.Map;
 
 /**
  * Created by zakaria on 18/07/2016.
  */
+@Entity
 public class Cart {
 
-    private int userId;
-    private Map<Product ,Integer> addedPro;//products added to the cart
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int cartId;
+   @OneToOne
+    private User user;
 
-    public Cart(int userId, Map<Product, Integer> addedPro) {
-        this.userId = userId;
-        this.addedPro = addedPro;
+
+    public Cart(int cartId,User user) {
+        this.cartId = cartId;
+        this.user = user;
     }
 
     public Cart() {
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCartId() {
+        return cartId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
     }
 
-    public Map<Product, Integer> getAddedPro() {
-        return addedPro;
+    public User getUser() {
+        return user;
     }
 
-    public void setAddedPro(Map<Product, Integer> addedPro) {
-        this.addedPro = addedPro;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

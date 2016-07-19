@@ -1,13 +1,24 @@
 package com.business.model;
 
+import javax.persistence.*;
+
 /**
  * Created by zakaria on 18/07/2016.
  */
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="Product_Type")
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int productId;
+    @Column
     private String productName;
+    @Column
     private int productInventory;
+    @Column
     private String productImg;
 
     public Product(int productId, String productName, int productInventory, String productImg) {
