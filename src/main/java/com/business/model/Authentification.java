@@ -6,25 +6,17 @@ package com.business.model;
 
 public class Authentification {
 
-    private User user;
     private String login;
     private String password;
     public Authentification() {
     }
 
-    public Authentification(User user, String login, String password) {
-        this.user = user;
+    public Authentification(String login, String password) {
+
         this.login = login;
         this.password = password;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getLogin() {
         return login;

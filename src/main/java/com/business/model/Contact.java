@@ -5,15 +5,14 @@ package com.business.model;
  */
 public class Contact {
 
-    private User user;
     private String address;
     private String companyName;
     private String email;
     private String cin;
     private String phoneNum;
 
-    public Contact(User user, String address, String companyName, String email, String cin, String phoneNum) {
-        this.user = user;
+    public Contact( String address, String companyName, String email, String cin, String phoneNum) {
+
         this.address = address;
         this.companyName = companyName;
         this.email = email;
@@ -24,13 +23,9 @@ public class Contact {
     public Contact() {
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+
+
 
     public String getAddress() {
         return address;
