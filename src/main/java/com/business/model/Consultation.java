@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Created by zakaria on 18/07/2016.
  */
+
 @Entity
 public class Consultation {
 
@@ -37,5 +38,41 @@ public class Consultation {
 
     public void setProList(List<ConsultationProduct> proList) {
         this.proList = proList;
+    }
+
+    public void addProduct(ConsultationProduct p)
+    {
+        if(this.proList.isEmpty())
+            this.proList.add(p);
+        else
+        {
+            ConsultationProduct prod=null;
+
+            while(this.proList.iterator().hasNext())
+            {
+                prod=this.proList.iterator().next();
+                if(prod.getProductId()==p.getProductId())
+                    System.out.println("Product already exists");
+            }
+            this.proList.add(p);
+        }
+    }
+
+    public void deleteProduct(ConsultationProduct p)
+    {
+        if(this.proList.isEmpty())
+            System.out.println("Product not found in the List");
+        else
+        {
+            ConsultationProduct prod=null;
+
+            while(this.proList.iterator().hasNext())
+            {
+                prod=this.proList.iterator().next();
+                if(prod.getProductId()==p.getProductId())
+                    this.proList.remove(p);
+            }
+            this.proList.add(p);
+        }
     }
 }

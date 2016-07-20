@@ -7,7 +7,7 @@ import java.util.List;
  * Created by zakaria on 19/07/2016.
  */
 @Entity
-public class AssociationChartConsulationProduct {
+public class AssociationChartConsultationProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,13 +20,13 @@ public class AssociationChartConsulationProduct {
     @Column
     private int prodQtity;
 
-    public AssociationChartConsulationProduct(ConsultationProduct produit, int prodQtity, Cart cart) {
+    public AssociationChartConsultationProduct(ConsultationProduct produit, int prodQtity, Cart cart) {
         this.produit = produit;
         this.prodQtity = prodQtity;
         this.cart = cart;
     }
 
-    public AssociationChartConsulationProduct() {
+    public AssociationChartConsultationProduct() {
     }
 
     public int getId() {

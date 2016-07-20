@@ -1,7 +1,6 @@
 package com.business.model;
 
 import javax.persistence.*;
-import javax.websocket.ClientEndpoint;
 import java.util.List;
 
 /**
@@ -116,4 +115,50 @@ public class User {
     public void setAuth(Authentification auth) {
         this.auth = auth;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (getUserId() != user.getUserId()) return false;
+        if (getUserFirstName() != null ? !getUserFirstName().equals(user.getUserFirstName()) : user.getUserFirstName() != null)
+            return false;
+        if (getUserLastName() != null ? !getUserLastName().equals(user.getUserLastName()) : user.getUserLastName() != null)
+            return false;
+        if (getUserRole() != null ? !getUserRole().equals(user.getUserRole()) : user.getUserRole() != null)
+            return false;
+        if (getTransHistory() != null ? !getTransHistory().equals(user.getTransHistory()) : user.getTransHistory() != null)
+            return false;
+        if (auctHistory != null ? !auctHistory.equals(user.auctHistory) : user.auctHistory != null) return false;
+        if (getCart() != null ? !getCart().equals(user.getCart()) : user.getCart() != null) return false;
+        if (getContact() != null ? !getContact().equals(user.getContact()) : user.getContact() != null) return false;
+        return !(getAuth() != null ? !getAuth().equals(user.getAuth()) : user.getAuth() != null);
+
+    }
+
+    public void addTransaction(Transaction t)
+    {
+        Transaction trans=null;
+        while(this.transHistory.iterator().hasNext()){
+            trans=this.transHistory.iterator().next();
+            if(trans.getTransId()== t.getTransId())
+                System.out.println("Transaction already exists");
+        }
+        this.transHistory.add(t);
+    }
+    public void addAuction(Auction a)
+    {
+        Auction auct=null;
+        while(this.auctHistory.iterator().hasNext()){
+            auct=this.auctHistory.iterator().next();
+            if(auct.getAuctionId()== a.getAuctionId())
+                System.out.println("Auction already exists");
+        }
+        this.auctHistory.add(a);
+    }
 }
+
+

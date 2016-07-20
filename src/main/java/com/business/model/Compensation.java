@@ -20,6 +20,9 @@ public class Compensation {
         this.compId = compId;
     }
 
+    public Compensation() {
+    }
+
     public int getCompId() {
         return compId;
     }
