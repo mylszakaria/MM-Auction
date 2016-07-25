@@ -1,36 +1,44 @@
 package com.business.model;
 
-import javax.persistence.*;
+import javax.persistence.Transient;
 import java.util.List;
 
 /**
  * Created by zakaria on 18/07/2016.
  */
-@Entity
 public class Cart {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int cartId;
-    @OneToOne
-    private User user;
-    @OneToMany
-    private List<AssociationChartConsultationProduct> productList ;
+    private Transaction trans;
 
-    public Cart(int cartId,User user,List<AssociationChartConsultationProduct> productList) {
+    private int cartId;
+
+    private User user;
+
+    private List<AssociationTransactionConsultationProduct> productList ;
+
+    public Cart(int cartId,User user,List<AssociationTransactionConsultationProduct> productList,Transaction trans) {
         this.cartId = cartId;
         this.user = user;
         this.productList=productList;
+        this.trans=trans;
     }
 
     public Cart() {
     }
 
-    public List<AssociationChartConsultationProduct> getProductList() {
+    public Transaction getTrans() {
+        return trans;
+    }
+
+    public void setTrans(Transaction trans) {
+        this.trans = trans;
+    }
+
+    public List<AssociationTransactionConsultationProduct> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<AssociationChartConsultationProduct> productList) {
+    public void setProductList(List<AssociationTransactionConsultationProduct> productList) {
         this.productList = productList;
     }
 
@@ -53,10 +61,10 @@ public class Cart {
     public void addProduct(ConsultationProduct prod, int prodQtity)
     {
         if(this.productList.isEmpty())
-            this.productList.add(new AssociationChartConsultationProduct(prod,prodQtity,this));
+            this.productList.add(new AssociationTransactionConsultationProduct(prod,prodQtity,trans,this));
         else
         {
-            AssociationChartConsultationProduct asso=null;
+            AssociationTransactionConsultationProduct asso=null;
 
             while(this.productList.iterator().hasNext())
             {
@@ -77,7 +85,7 @@ public class Cart {
     public double calcAmount()
     {
         double amount = 0;
-        AssociationChartConsultationProduct asso = null;
+        AssociationTransactionConsultationProduct asso = null;
 
         while (this.productList.iterator().hasNext()) {
             asso = this.productList.iterator().next();

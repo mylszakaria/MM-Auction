@@ -22,7 +22,7 @@ public class User {
     private List<Transaction> transHistory;
     @ManyToMany
     private List<Auction> auctHistory;
-    @OneToOne
+    @Transient
     private Cart cart;
     @Embedded
     private Contact contact;
@@ -84,11 +84,11 @@ public class User {
         this.transHistory = transHistory;
     }
 
-    public List<Auction> getauctHistory() {
+    public List<Auction> getAuctHistory() {
         return auctHistory;
     }
 
-    public void setCompHistory(List<Compensation> compHistory) {
+    public void setAuctHistory(List<Auction> auctHistory) {
         this.auctHistory = auctHistory;
     }
 
@@ -104,8 +104,8 @@ public class User {
         return contact;
     }
 
-    public void setConctact(Contact conctact) {
-        this.contact = conctact;
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 
     public Authentification getAuth() {

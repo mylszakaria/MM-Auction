@@ -41,6 +41,14 @@ public class Transaction {
     public Transaction() {
     }
 
+    public Date getLimiteDate() {
+        return limiteDate;
+    }
+
+    public void setLimiteDate(Date limiteDate) {
+        this.limiteDate = limiteDate;
+    }
+
     public int getTransId() {
         return transId;
     }

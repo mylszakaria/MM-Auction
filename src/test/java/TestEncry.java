@@ -1,4 +1,4 @@
-import com.Encryptor;
+import com.utilities.Encryptor;
 import junit.framework.Assert;
 import org.junit.Test;
 

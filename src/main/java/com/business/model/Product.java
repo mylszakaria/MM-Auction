@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="Product_Type")
+@DiscriminatorColumn(name="ProductType")
 public class Product {
 
     @Id

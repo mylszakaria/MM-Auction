@@ -1,4 +1,4 @@
-package com;
+package com.utilities;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

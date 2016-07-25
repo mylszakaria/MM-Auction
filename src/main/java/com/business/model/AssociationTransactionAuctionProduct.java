@@ -7,22 +7,26 @@ import java.util.List;
  * Created by zakaria on 19/07/2016.
  */
 @Entity
-public class AssociationCartAuctionProduct {
+public class AssociationTransactionAuctionProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  int id;
-    @ManyToOne
+    @Transient
     private Cart cart;
+    @OneToOne
+    private User user;
     @ManyToOne
     private AuctionProduct auctProduct;
     @Column
     private double highestBid;
+    @ManyToOne
+    private Transaction trans;
 
-    public AssociationCartAuctionProduct() {
+    public AssociationTransactionAuctionProduct() {
     }
 
-    public AssociationCartAuctionProduct(Cart cart, AuctionProduct auctProduct, double highestBid) {
+    public AssociationTransactionAuctionProduct(Cart cart, AuctionProduct auctProduct, double highestBid) {
 
         this.cart = cart;
         this.auctProduct = auctProduct;
@@ -31,6 +35,14 @@ public class AssociationCartAuctionProduct {
 
     public Cart getCart() {
         return cart;
+    }
+
+    public Transaction getTrans() {
+        return trans;
+    }
+
+    public void setTrans(Transaction trans) {
+        this.trans = trans;
     }
 
     public void setCart(Cart cart) {
