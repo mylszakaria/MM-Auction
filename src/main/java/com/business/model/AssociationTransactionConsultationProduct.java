@@ -11,8 +11,7 @@ public class AssociationTransactionConsultationProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
+    private long id;
     @ManyToOne
     private ConsultationProduct produit;
     @ManyToOne
@@ -22,14 +21,8 @@ public class AssociationTransactionConsultationProduct {
     @Transient
     private Cart cart;
 
-    public AssociationTransactionConsultationProduct(ConsultationProduct produit, int prodQtity, Transaction trans, Cart cart) {
-        this.produit = produit;
-        this.prodQtity = prodQtity;
-        this.trans = trans;
-        this.cart=cart;
-    }
-
     public AssociationTransactionConsultationProduct() {
+        super();
     }
 
     public Cart getCart() {
@@ -40,11 +33,11 @@ public class AssociationTransactionConsultationProduct {
         this.cart = cart;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

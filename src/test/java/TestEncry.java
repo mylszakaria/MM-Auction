@@ -1,5 +1,5 @@
 import com.utilities.Encryptor;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.security.NoSuchAlgorithmException;

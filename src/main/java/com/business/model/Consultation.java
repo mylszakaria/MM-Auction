@@ -12,23 +12,20 @@ public class Consultation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int consId;
+    private long consId;
     @OneToMany
     private List<ConsultationProduct> proList;
 
-    public Consultation(int consId, List<ConsultationProduct> proList) {
-        this.consId = consId;
-        this.proList = proList;
-    }
 
     public Consultation() {
+        super();
     }
 
-    public int getConsId() {
+    public long getConsId() {
         return consId;
     }
 
-    public void setConsId(int consId) {
+    public void setConsId(long consId) {
         this.consId = consId;
     }
 

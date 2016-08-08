@@ -8,12 +8,12 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="ProductType")
+@DiscriminatorColumn(name="Product Type")
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int productId;
+    private long productId;
     @Column
     private String productName;
     @Column
@@ -21,21 +21,16 @@ public class Product {
     @Column
     private String productImg;
 
-    public Product(int productId, String productName, int productInventory, String productImg) {
-        this.productId = productId;
-        this.productName = productName;
-        this.productInventory = productInventory;
-        this.productImg = productImg;
-    }
 
     public Product() {
+        super();
     }
 
-    public int getProductId() {
+    public long getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
     }
 

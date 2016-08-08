@@ -1,4 +1,5 @@
 package com.business.model;
+import com.utilities.Encryptor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -10,27 +11,21 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Authentification {
 
-    @Column
-    private String login;
-    @Column
+    @Column(unique = true)
+    private String email;
+    @Column(nullable=false)
     private String password;
 
     public Authentification() {
+        super();
     }
 
-    public Authentification(String login, String password) {
-
-        this.login = login;
-        this.password = password;
+    public String getEmail() {
+        return email;
     }
 
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -38,6 +33,6 @@ public class Authentification {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = Encryptor.encrypte(password);
     }
 }

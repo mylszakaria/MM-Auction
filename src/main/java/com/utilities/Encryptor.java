@@ -44,8 +44,7 @@ public abstract class Encryptor {
 
     }
 
-    public static boolean testPassword(String clearTextTestPassword,
-                                       String encodedActualPassword)
+    public static boolean testPassword(String clearTextTestPassword, String encodedActualPassword)
             throws NoSuchAlgorithmException
     {
         String encodedTestPassword = Encryptor.encrypte(

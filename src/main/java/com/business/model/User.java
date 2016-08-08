@@ -1,6 +1,7 @@
 package com.business.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+    private long userId;
     @Column
     private String userFirstName;
     @Column
@@ -19,7 +20,7 @@ public class User {
     @Column
     private String userRole;
     @OneToMany
-    private List<Transaction> transHistory;
+    private List<Transaction> transHistory = new ArrayList<Transaction>();
     @ManyToMany
     private List<Auction> auctHistory;
     @Transient
@@ -29,26 +30,15 @@ public class User {
     @Embedded
     private Authentification auth;
 
-    public User(int userId, String userFirstName, String userLastName, String userRole, List<Transaction> transHistory, List<Auction> auctHistory, Cart cart, Contact conctact, Authentification auth) {
-        this.userId = userId;
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
-        this.userRole = userRole;
-        this.transHistory = transHistory;
-        this.auctHistory = auctHistory;
-        this.cart = cart;
-        this.contact = conctact;
-        this.auth = auth;
-    }
-
     public User() {
+        super();
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
@@ -145,7 +135,14 @@ public class User {
         while(this.transHistory.iterator().hasNext()){
             trans=this.transHistory.iterator().next();
             if(trans.getTransId()== t.getTransId())
+            {
                 System.out.println("Transaction already exists");
+                trans.setTransAmount(t.getTransAmount());
+                trans.setAuction(t.getAuction());
+                trans.setUser(t.getUser());
+                trans.setLimiteDate(t.getLimiteDate());
+                break;
+            }
         }
         this.transHistory.add(t);
     }

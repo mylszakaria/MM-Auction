@@ -15,12 +15,9 @@ public class AuctionProduct extends Product {
     @Column
     private double productminPrice;
 
-    public AuctionProduct(int productId, String productName, int productInventory, String productImg, double productmonPrice) {
-        super(productId, productName, productInventory, productImg);
-        this.productminPrice=productmonPrice;
-    }
 
     public AuctionProduct() {
+        super();
     }
 
     public double getProductminPrice() {

@@ -10,20 +10,15 @@ public class Cart {
 
     private Transaction trans;
 
-    private int cartId;
+    private String cartId;
 
     private User user;
 
     private List<AssociationTransactionConsultationProduct> productList ;
 
-    public Cart(int cartId,User user,List<AssociationTransactionConsultationProduct> productList,Transaction trans) {
-        this.cartId = cartId;
-        this.user = user;
-        this.productList=productList;
-        this.trans=trans;
-    }
 
     public Cart() {
+        super();
     }
 
     public Transaction getTrans() {
@@ -42,11 +37,11 @@ public class Cart {
         this.productList = productList;
     }
 
-    public int getCartId() {
+    public String getCartId() {
         return cartId;
     }
 
-    public void setCartId(int cartId) {
+    public void setCartId(String cartId) {
         this.cartId = cartId;
     }
 
@@ -61,7 +56,14 @@ public class Cart {
     public void addProduct(ConsultationProduct prod, int prodQtity)
     {
         if(this.productList.isEmpty())
-            this.productList.add(new AssociationTransactionConsultationProduct(prod,prodQtity,trans,this));
+        {
+            AssociationTransactionConsultationProduct asso = new AssociationTransactionConsultationProduct();
+            asso.setCart(this);
+            asso.setProdQtity(prodQtity);
+            asso.setProduit(prod);
+            asso.setTrans(trans);
+            this.productList.add(asso);
+        }
         else
         {
             AssociationTransactionConsultationProduct asso=null;

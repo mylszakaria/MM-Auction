@@ -2,7 +2,6 @@ package com.business.data;
 
 import com.business.model.User;
 import com.utilities.ExceptionHandler;
-
 import java.util.List;
 
 /**
@@ -41,12 +40,12 @@ public abstract class UserDAO {
             return userU.getUserId()+"";
         } catch (Exception e) {
             DAO.getEntityManager().getTransaction().rollback();
-            ExceptionHandler.handleException("Exception while updating CaracteristiqueProduit",e);
+            ExceptionHandler.handleException("Exception while updating User",e);
             return null;
         }
     }
 
-    public synchronized static boolean deleteUser(double id){
+    public synchronized static boolean deleteUser(long id){
         try{
             DAO.getEntityManager().getTransaction().begin();
             User user = DAO.getEntityManager().find(User.class, id);
@@ -62,7 +61,7 @@ public abstract class UserDAO {
         }
     }
 
-    public synchronized static User getUser(double id){
+    public synchronized static User getUser(long id){
         try {
             return DAO.getEntityManager().find(User.class,id);
         } catch (Exception e) {

@@ -14,28 +14,14 @@ public class Contact {
     private String address;
     @Column
     private String companyName;
-    @Column
-    private String email;
-    @Column
+    @Column(unique = true , nullable = false)
     private String cin;
     @Column
     private String phoneNum;
 
-    public Contact( String address, String companyName, String email, String cin, String phoneNum) {
-
-        this.address = address;
-        this.companyName = companyName;
-        this.email = email;
-        this.cin = cin;
-        this.phoneNum = phoneNum;
-    }
-
     public Contact() {
+        super();
     }
-
-
-
-
 
     public String getAddress() {
         return address;
@@ -51,14 +37,6 @@ public class Contact {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getCin() {

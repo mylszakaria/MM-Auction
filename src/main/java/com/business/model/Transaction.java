@@ -1,9 +1,7 @@
 package com.business.model;
 
-import org.hibernate.boot.registry.selector.StrategyRegistration;
-
 import javax.persistence.*;
-import java.util.Date;
+
 
 /**
  * Created by zakaria on 18/07/2016.
@@ -13,7 +11,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int transId;
+    private long transId;
     @Column
     private double transAmount;
     @ManyToOne
@@ -21,39 +19,26 @@ public class Transaction {
     @ManyToOne
     private Auction auction;
     @Column
-    private Date limiteDate;
+    private String limiteDate;
 
-    //Constructeur pour payer  la compensation
-    public Transaction(int transId, double transAmount, User user, Auction auction) {
-        this.transId = transId;
-        this.transAmount = transAmount;
-        this.user = user;
-        this.auction = auction;
-    }
-
-    //Constructeur pour acheter les produits du panier
-    public Transaction(int transId, double transAmount, User user) {
-        this.transId = transId;
-        this.transAmount = transAmount;
-        this.user = user;
-    }
 
     public Transaction() {
+        super();
     }
 
-    public Date getLimiteDate() {
+    public String  getLimiteDate() {
         return limiteDate;
     }
 
-    public void setLimiteDate(Date limiteDate) {
+    public void setLimiteDate(String limiteDate) {
         this.limiteDate = limiteDate;
     }
 
-    public int getTransId() {
+    public long getTransId() {
         return transId;
     }
 
-    public void setTransId(int transId) {
+    public void setTransId(long transId) {
         this.transId = transId;
     }
 

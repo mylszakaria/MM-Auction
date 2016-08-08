@@ -11,7 +11,7 @@ public class AssociationTransactionAuctionProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int id;
+    private  long id;
     @Transient
     private Cart cart;
     @OneToOne
@@ -24,13 +24,7 @@ public class AssociationTransactionAuctionProduct {
     private Transaction trans;
 
     public AssociationTransactionAuctionProduct() {
-    }
-
-    public AssociationTransactionAuctionProduct(Cart cart, AuctionProduct auctProduct, double highestBid) {
-
-        this.cart = cart;
-        this.auctProduct = auctProduct;
-        this.highestBid = highestBid;
+        super();
     }
 
     public Cart getCart() {
@@ -49,11 +43,11 @@ public class AssociationTransactionAuctionProduct {
         this.cart = cart;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

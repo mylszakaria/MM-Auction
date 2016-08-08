@@ -36,7 +36,7 @@ public abstract class TransactionDAO {
             return transU.getTransId()+"";
         } catch (Exception e) {
             DAO.getEntityManager().getTransaction().rollback();
-            ExceptionHandler.handleException("Exception while updating CaracteristiqueProduit",e);
+            ExceptionHandler.handleException("Exception while updating Transaction",e);
             return null;
         }
     }

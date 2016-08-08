@@ -12,6 +12,10 @@ public class ConsultationProduct extends Product {
     @Column
     private double productPrice;
 
+    public ConsultationProduct() {
+        super();
+    }
+
     public double getProductPrice() {
         return productPrice;
     }
@@ -20,12 +24,5 @@ public class ConsultationProduct extends Product {
         this.productPrice = productPrice;
     }
 
-    public ConsultationProduct(int productId, String productName, int productInventory, String productImg, double productPrice) {
-        super(productId, productName, productInventory, productImg);
-        this.productPrice=productPrice;
 
-    }
-
-    public ConsultationProduct() {
-    }
 }

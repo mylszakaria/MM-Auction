@@ -11,23 +11,20 @@ public class Compensation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int compId;
+    private long compId;
     @Column
     private double minPrice;
 
-    public Compensation(double minPrice, int compId) {
-        this.minPrice = minPrice;
-        this.compId = compId;
-    }
 
     public Compensation() {
+        super();
     }
 
-    public int getCompId() {
+    public long getCompId() {
         return compId;
     }
 
-    public void setCompId(int compId) {
+    public void setCompId(long compId) {
         this.compId = compId;
     }
 

@@ -13,7 +13,7 @@ public class Auction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int auctionId;
+    private long auctionId;
     @Column
     private Date startingDate;
     @Column
@@ -25,14 +25,8 @@ public class Auction {
     @ManyToMany
     private List<User> users;
 
-
-    public Auction(int auctionId, Date endingDate, Date startingDate, List<AuctionProduct> prodList,Compensation comp, List<User> users) {
-        this.auctionId = auctionId;
-        this.endingDate = endingDate;
-        this.startingDate = startingDate;
-        this.prodList = prodList;
-        this.comp=comp;
-        this.users=users;
+    public Auction() {
+        super();
     }
 
     public List<User> getUsers() {
@@ -51,14 +45,12 @@ public class Auction {
         this.comp = comp;
     }
 
-    public Auction() {
-    }
 
-    public int getAuctionId() {
+    public long getAuctionId() {
         return auctionId;
     }
 
-    public void setAuctionId(int auctionId) {
+    public void setAuctionId(long auctionId) {
         this.auctionId = auctionId;
     }
 
