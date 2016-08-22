@@ -66,4 +66,12 @@ public class AssociationTransactionAuctionProduct {
     public void setHighestBid(double highestBid) {
         this.highestBid = highestBid;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

@@ -15,7 +15,6 @@ public class AuctionProduct extends Product {
     @Column
     private double productminPrice;
 
-
     public AuctionProduct() {
         super();
     }

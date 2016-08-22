@@ -25,8 +25,11 @@ public abstract class AuctionProductDAO {
             DAO.getEntityManager().getTransaction().commit();
             return P.getProductId()+"";
         }catch(Exception e){
-            DAO.getEntityManager().getTransaction().rollback();
-            ExceptionHandler.handleException("Exception while inserting AuctionProduct",e);
+            //if(DAO.getEntityManager().getTransaction().isActive())
+            //{
+                DAO.getEntityManager().getTransaction().rollback();
+                ExceptionHandler.handleException("Exception while inserting AuctionProduct", e);
+            //}
             return null;
         }
     }

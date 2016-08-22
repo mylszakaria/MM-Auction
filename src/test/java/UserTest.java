@@ -21,9 +21,10 @@ public class UserTest {
         Contact con = new Contact();
         con.setAddress("address");
         con.setCompanyName("Marsa Maroc");
+        con.setCin("10310251");
 
         Authentification auth = new Authentification();
-        auth.setEmail("email2");
+        auth.setEmail("useremail");
         auth.setPassword("pwd");
 
 
@@ -35,7 +36,6 @@ public class UserTest {
         user.setContact(con);
         user.addTransaction(trans);
 
-
         Transaction trans1 = new Transaction();
         trans1.setLimiteDate("30/07/2016");
         trans1.setTransAmount(40000);
@@ -43,10 +43,11 @@ public class UserTest {
         Contact con1 = new Contact();
         con1.setAddress("address1");
         con1.setCompanyName("Marsa Maroc1");
+        con1.setCin("cin1");
 
 
         Authentification auth1 = new Authentification();
-        auth1.setEmail("email");
+        auth1.setEmail("user1email");
         auth1.setPassword("pwd1");
 
         User user1 = new User();
@@ -73,6 +74,7 @@ public class UserTest {
         String id1 =UserDAO.insertUser(user1);
         System.out.println(id1+" id user1");
         Assert.assertNotNull(id1);
+
         System.out.println("INSERTING FINISH SUCCESS");
 
 
@@ -108,11 +110,8 @@ public class UserTest {
         Assert.assertTrue(UserDAO.getAll().size()>0);
 
         /**TEST DELETING**/
-        System.out.println("TEST DELETING");
-        Assert.assertTrue(UserDAO.deleteUser(user.getUserId()));
-
-
-
+       /* System.out.println("TEST DELETING");
+        Assert.assertTrue(UserDAO.deleteUser(user.getUserId()));*/
 
 
     }

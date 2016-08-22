@@ -79,4 +79,13 @@ public abstract class UserDAO {
         }
     }
 
+    public synchronized static User getUser(String email){
+        try {
+            return DAO.getEntityManager().createQuery("select U from User U where lower(U.contact.address) LIKE :x",User.class).getSingleResult();
+        } catch (Exception e) {
+            ExceptionHandler.handleException("Exception while fetching User by id",e);
+            return null;
+        }
+    }
+
 }

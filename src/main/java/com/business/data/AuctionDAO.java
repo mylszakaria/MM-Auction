@@ -23,7 +23,7 @@ public abstract class AuctionDAO {
         }
     }
 
-    public static String updateUser (Auction auct){
+    public static String updateAuction (Auction auct){
         try {
             DAO.getEntityManager().getTransaction().begin();
             Auction auctU = DAO.getEntityManager().find(Auction.class,auct.getAuctionId());

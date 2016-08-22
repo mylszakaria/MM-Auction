@@ -94,7 +94,10 @@ public class userController {
                     try
                     {
                         if(Encryptor.testPassword(request.getParameter("password"), user.getAuth().getPassword()))
+                        {
+                            model.addAttribute("userid",user.getUserId());
                             return "ConnexionSuccess";
+                        }
                     }
                     catch (NoSuchAlgorithmException e)
                     {
