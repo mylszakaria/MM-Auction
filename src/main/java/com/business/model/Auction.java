@@ -20,10 +20,20 @@ public class Auction {
     private Date endingDate;
     @OneToMany
     private List<AuctionProduct> prodList;
+    @OneToMany
+    private List<AssociationTransactionAuctionProduct> assos;
     @ManyToOne
     private Compensation comp;
     @ManyToMany
     private List<User> users;
+
+    public List<AssociationTransactionAuctionProduct> getAssos() {
+        return assos;
+    }
+
+    public void setAssos(List<AssociationTransactionAuctionProduct> assos) {
+        this.assos = assos;
+    }
 
     public Auction() {
         super();
@@ -104,6 +114,16 @@ public class Auction {
                 System.out.println("Product deleted");
             }
         }
+    }
+
+    public void addAsso(AssociationTransactionAuctionProduct ass)
+    {
+        assos.add(ass);
+    }
+
+    public void deleteAsso(AssociationTransactionAuctionProduct ass)
+    {
+        assos.remove(ass);
     }
 
 }

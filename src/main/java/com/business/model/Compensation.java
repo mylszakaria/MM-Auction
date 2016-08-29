@@ -16,6 +16,8 @@ public class Compensation {
     private double minPrice;
 
 
+
+
     public Compensation() {
         super();
     }
