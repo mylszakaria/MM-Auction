@@ -67,6 +67,7 @@ public class TransactionController {
             }
         }
         model.addAttribute("winners",auctwinners);
+        model.addAttribute("auct",auctId);
         return "auctionwinners";
     }
 }

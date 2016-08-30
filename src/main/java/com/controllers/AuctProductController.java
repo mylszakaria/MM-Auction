@@ -27,10 +27,12 @@ public class AuctProductController {
     public String viewAuctionProducts(ModelMap model)
     {
         if(AuctionProductDAO.getAll()==null)
-            model.addAttribute("auctProducts","no Products available right now");
+            return "redirect:/index";
         else
+        {
             model.addAttribute("auctProducts", AuctionProductDAO.getAll());
-        return "auctProducts";
+            return "auctProducts";
+        }
     }
 
     @RequestMapping(value="/auctionproducts/{id}",method=RequestMethod.GET)
@@ -92,7 +94,7 @@ public class AuctProductController {
         if(id!="")
              return "bidsuccess";
         else
-            return "redirect:/auctionproducts/"+prodid;
+            return "redirect:/auctionproducts";
     }
 
 

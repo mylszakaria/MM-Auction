@@ -18,10 +18,12 @@ public class ConsProdController {
     public String viewConsProducts(ModelMap model)
     {
         if(ConsultationProductDAO.getAll()==null)
-            model.addAttribute("consProducts","no products available right now");
+            return "redirect:/index.jsp";
         else
-            model.addAttribute("consProducts",ConsultationProductDAO.getAll());
-        return "consProducts";
+        {
+            model.addAttribute("consProducts", ConsultationProductDAO.getAll());
+            return "consProducts";
+        }
     }
 
     @RequestMapping(value = "/ConsultationsProducts/{id}",method = RequestMethod.GET)
