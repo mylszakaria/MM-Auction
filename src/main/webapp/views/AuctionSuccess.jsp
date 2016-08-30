@@ -1,19 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: zakaria
-  Date: 13/07/2016
-  Time: 14:17
+  Date: 30/08/2016
+  Time: 21:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>User 1</title>
+    <title>Title</title>
 </head>
 <body>
-    <h1>${name}</h1><br>
-    <h1>${age}</h1><br>
-    <h1>${address}</h1><br>
-    <h1>hada makan</h1><br>
+        <p> l'Auction a été ajouté avec succes</p>
 </body>
 </html>

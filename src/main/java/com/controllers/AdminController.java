@@ -60,7 +60,7 @@ public class AdminController  {
     public String deleteProd(@PathVariable("id") long auctId,HttpServletRequest request)
     {
         AuctionDAO.getAuction(auctId).deleteProduct(AuctionProductDAO.getProduit(Double.parseDouble(request.getParameter("prodId"))));
-        return auctId+"/products";
+        return "productdeleted";
     }
 
     @RequestMapping(value ="/{id}/products" ,method = RequestMethod.GET )
